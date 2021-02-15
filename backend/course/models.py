@@ -36,7 +36,6 @@ class Instructor(models.Model):
     name = models.CharField(max_length=200, default='')
     about = models.CharField(max_length=500, default='')
     specialization = models.CharField(max_length=200, default='')
-    phone_number = PhoneNumberField()
     link = models.ManyToManyField(Link, default='#')
     image = models.ImageField(upload_to='images/instructor')
     image_thumbnail = ImageSpecField(source='image',
@@ -84,7 +83,7 @@ class Course(models.Model):
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse("Course_detail", kwargs={"pk": self.pk})
+        return reverse("Course_detail", kwargs={'slug': self.slug})
 
 #Add duration to module
 class Module(models.Model):

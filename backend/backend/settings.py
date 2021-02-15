@@ -38,12 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-     #third party
+     #Third Party App
      'languages',
      'rest_framework',
-     'phonenumber_field',
 
+    #Created App
     'course',
+    'event'
 
 ]
 
