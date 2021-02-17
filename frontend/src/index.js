@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import {Route, Switch, HashRouter} from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
-
+import indexRoutes from './routes/index';
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+
+  
+  <HashRouter>
+    <Switch>
+      {indexRoutes.map((prop, key) => {
+        return <Route path={prop.path} key={key} component={prop.component} />
+      })}
+    </Switch>
+  </HashRouter>,
   document.getElementById('root')
 );
 
